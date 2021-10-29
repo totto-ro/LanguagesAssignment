@@ -8,16 +8,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Edit</title>
-		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./CSS/edit.css">
 	</head>
 	<body>
 		<main>
 			<nav>
-			    <a href="/languages/delete/${element.id}">delete</a>
+			    <form action="/${language.id}" method="POST">
+				    <input type="hidden" name="_method" value="delete">
+				    <input type="submit" value="delete">
+			    </form>
 			    <a href="/languages">Dashboard</a>
 			</nav>
 			<div>
-				<form:form action="/languages" method="post" modelAttribute="language">
+				<form:form action="/languages/edit/${ language.id }" method="POST" modelAttribute="language">
 				<input type="hidden" name="_method" value="put">
 			    <p>
 			        <form:label path="name">name</form:label>
@@ -27,7 +30,7 @@
 			    <p>
 			        <form:label path="creator">Creator</form:label>
 			        <form:errors path="creator"/>
-			        <form:textarea path="creator"/>
+			        <form:input path="creator"/>
 			    </p>
 			    <p>
 			        <form:label path="version">Version</form:label>

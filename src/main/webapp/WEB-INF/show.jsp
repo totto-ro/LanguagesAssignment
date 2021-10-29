@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Show</title>
-		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/styles.css">
 	</head>
 	<body>
 		<main>
@@ -15,12 +15,14 @@
 			</nav>
 			<h1><c:out value="${language.name}"/></h1>
 			<p>Description: <c:out value="${language.creator}"/></p>
-			<p>Language: <c:out value="${book.version}"/></p>
-			<a href="/languages/edit/${element.id}">edit</a>
-			<form action="/${language.id}" method="POST">
-			    <input type="hidden" name="_method" value="delete">
-			    <input type="submit" value="Delete">
-			</form>
+			<p>Version: <c:out value="${language.version}"/></p>
+			<div class="div">
+				<a href="/languages/edit/${language.id}">edit</a>
+				<form action="/${language.id}" method="POST">
+				    <input type="hidden" name="_method" value="delete">
+				    <input type="submit" value="delete">
+				</form>
+			</div>
 		</main>
 	</body>
 </html>
